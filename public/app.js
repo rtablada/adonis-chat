@@ -67,6 +67,7 @@
 
     join() {
       this.selectors.roomName.innerText = this.app.state.roomName;
+      this.socket = io('/' + this.app.state.roomName);
     }
   }
 
