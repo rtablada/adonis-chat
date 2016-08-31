@@ -67,13 +67,18 @@
 
     join() {
       this.selectors.roomName.innerText = this.app.state.roomName;
-      this.socket = io('/' + this.app.state.roomName);
+
+      this.app.socket.emit('join', this.app.state.roomName);
+      this.app.socket.on('post', (post) => {
+        console.log(post);
+      });
     }
   }
 
   class App {
     constructor(el) {
       this.el = el;
+      this.socket = io();
       this.state = {};
       this.roomView = new RoomView(this);
       this.chatView = new ChatView(this);

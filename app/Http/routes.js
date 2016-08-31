@@ -18,3 +18,15 @@
 const Route = use('Route');
 
 Route.on('/').render('chat');
+
+const Post = use('App/Model/Post');
+const Event = use('Event');
+
+Route.post('/post', function * (request, response) {
+  const { room, message } = request.all();
+
+  const post = yield Post.create({ room, message });
+
+  response.send(post);
+  Event.fire('post.create', post);
+});
