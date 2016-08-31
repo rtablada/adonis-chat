@@ -27,8 +27,10 @@
     "adonis-jsonapi": "^0.3.0",
     "adonis-lucid": "^3.0.3",
     "adonis-middleware": "^1.0.7",
+    "co": "https://registry.npmjs.org/co/-/co-4.6.0.tgz",
     "pg": "^6.1.0",
     "pg-native": "^1.10.0",
+    "socket.io": "^1.4.8",
     "youch": "^1.0.1"
   },
   "autoload": {

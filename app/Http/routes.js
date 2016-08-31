@@ -17,22 +17,4 @@
 
 const Route = use('Route');
 
-Route.any('/', function * (request, response) {
-  response.json({
-    jsonapi: {
-      version: '1.0',
-    },
-    data: {
-    },
-    meta: {
-      uptime: process.uptime(),
-    },
-  });
-});
-
-const User = use('App/Model/User');
-Route.get('/users', function * (request, response) {
-  const users = yield User.all();
-
-  response.json(users.toJSON());
-});
+Route.on('/').render('chat');
